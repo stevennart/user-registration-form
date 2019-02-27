@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  /* border: 50px solid black; */
+  align-items: stretch;
+  background: orange;
+   height: 100%; 
+}
+
+header {
+  background: grey;
+}
+
+.one {
+  background: greenyellow;
+}
+
+.main {
+  background: blueviolet;
+  flex-grow: 2;
+}
+
+.two {
+  background: yellow;
+}
+
+footer {
+  background: bisque;
+}
+
+@media (max-width: 968px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
