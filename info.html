@@ -1,0 +1,201 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./normalize.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Caveat%7CDekko%7CDomine%7CItim%7COpen+Sans%7CSriracha" rel="stylesheet" /> -->
+    <script src="info.js"></script>
+    <title>User Registration Form - Steven Tran</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="head-row">
+            <img src="https://sitejerk.com/images/s-logo-transparent.png" alt="s_logo">
+            <div class="head-text-container">
+                <h1>USER REGISTRATION FORM</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+
+
+        <aside class="one">
+            <h1>MENU</h1>
+            <!-- <ul> -->
+            <div class="links">
+                <a href="./honesty.html">Home Page</a>
+                <a class="active" href="#">Registration</a> 
+            </div>
+
+            <!-- </ul> -->
+        </aside>
+
+        <main class="main">
+            <form class="form-center" action="https://httpbin.org/post" method="POST" name="signup" autocomplete="on"
+                onsubmit="return formValidation();">
+                <fieldset class="out-fieldset">
+
+                    <legend class="l">REGISTRATION FORM</legend>
+                    <ul class="flex-outer">
+                        <li>
+
+                            <label for="firstNameRef">First Name </label>
+                            <input type="text" name="fname" id="firstNameRef" placeholder="e.g. John, Joe" size="30"
+                                required autofocus pattern="[A-Z][a-z]+" onfocusout="return firstNameValidation()"
+                                onchange="return firstNameValidation()">
+                        </li>
+
+
+                        <!-- <br> -->
+                        <li>
+                            <label for="lastNameRef"> Last Name </label>
+                            <input type="text" name="lname" id="lastNameRef" placeholder="e.g. Doe, Smith" size="30"
+                                required pattern="[A-Z][a-z]+" onfocusout="return lastNameValidation()" onchange="return lastNameValidation()">
+
+                        </li>
+
+
+                        <!-- <br> -->
+                        <li>
+                            <label for="ageRef">Age </label>
+                            <input type="number" id="ageRef" name="age" title="min. age is 18 max age is 60" min="18"
+                                max="60" required onfocusout="return ageValidation()" onchange="return ageValidation()">
+
+                        </li>
+
+
+                        <!-- <br> -->
+                        <li>
+                            <label for="usernameRef">Username </label>
+                            <input type="text" name="user" size="30" id="usernameRef" required onfocusout="return usernameValidation()"
+                                onchange="return usernameValidation()"> <!-- needs js validation -->
+
+
+                        </li>
+
+
+                        <!-- <br> -->
+                        <li>
+                            <label for="passRef">Password </label>
+                            <input type="password" name="pass" id="passRef" size="30" required onfocusout="return passwordValidation()"
+                                onchange="return passwordValidation()"> <!-- needs js validation  -->
+
+                        </li>
+
+
+                        <!-- <br> -->
+                        <li>
+
+                            <label for="repassRef">Re-enter Password</label>
+                            <input type="password" name="repass" id="repassRef" size="30" required onfocusout="return rePasswordValidation()"
+                                onchange="return rePasswordValidation()"> <!-- needs js validation | matching -->
+
+                        </li>
+
+
+                        <!-- <br> -->
+                        <li>
+                            <label for="eduLevelRef"> Education Level</label>
+                            <select name="edulevel" id="eduLevelRef" required onchange="return educationLevelValidation()"
+                                onfocusout="return educationLevelValidation()">
+                                <!-- added 2 events for extra error alerts -->
+                                <option value="">--select--</option>
+                                <option value="Technical Diploma">Technical Diploma</option>
+                                <option value="College Diploma">College Diploma</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                                <option value="Others">Others</option>
+                            </select>
+
+
+                        </li>
+
+                        <li>
+                            <!-- <br> -->
+                            <label>Education Status</label>
+                            <!-- no need for any event, no js validation for this one -->
+                            <br>
+                            <ul class="flex-inner">
+
+                                <li>
+                                    <label for="grad">Graduated</label>
+                                    <input type="radio" name="edustatus" value="Graduated" required class="rad" id="grad">
+                                </li>
+                                <li>
+                                    <label for="curr">Currently Enrolled</label>
+                                    <input type="radio" name="edustatus" value="Currently Enrolled" required class="rad"
+                                        id="curr">
+                                </li>
+                                <li>
+                                    <label for="didn">Did Not Graduate</label>
+                                    <input type="radio" name="edustatus" value="Did Not Graduate" required class="rad"
+                                        id="didn">
+                                </li>
+
+                                <!-- <br>
+                               
+                                <br> -->
+
+
+                            </ul>
+
+
+                        </li>
+
+
+
+                        <!-- <br> -->
+                        <li>
+                            <label for="emailRef">Email</label>
+                            <input type="email" name="email" id="emailRef" placeholder="e.g. johndoe1337@gmail.com"
+                                size="30" required onfocusout="return emailValidation()" onchange="return emailValidation()">
+                        </li>
+
+                        <!-- <li> -->
+                        <input class="sub" type="submit" value="SIGN UP">
+                        <!-- </li> -->
+
+                        <!-- <li> -->
+                        <input class="clr" type="reset" value="CLEAR" onclick="clearErrorMessageAlert();">
+                        <!-- </li> -->
+
+                        <!-- submission needs -->
+                        <input type="hidden" name="lastName" id="lastName" value="Tran Steven">
+                        <input type="hidden" name="studentId" id="studentId" value="105629174">
+
+                    </ul>
+
+                </fieldset>
+            </form>
+
+        </main>
+
+        <aside class="two">
+            <!-- Error Header -->
+            <div id="errorMessageAlert"></div>
+            <!-- error message side box -->
+        </aside>
+
+
+
+
+    </div>
+
+    <footer>
+        <p>&copy; 2018 STEVEN TRAN</p>
+    </footer>
+
+
+
+
+</body>
+
+</html>
